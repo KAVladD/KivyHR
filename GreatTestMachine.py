@@ -29,7 +29,6 @@ class camApp(App):
             b.pop(-1)
             s=str(max(b)-min(b))
             self.lbl.text=s
-            print(type(a[0]))
             b=[]
             a=[]
             return False
