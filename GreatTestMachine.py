@@ -8,16 +8,16 @@ from time import time
 
 class camApp(App):   
     def build(self):
-        self.cam=Camera(index=0, resolution=(-1,-1),play=False)
+        self.cam=Camera(index=0, resolution=(1,1))
         bl=BoxLayout()
         btt=Button(text='1',on_press=self.g)
         self.lbl=Label(text='0')
+        #bl.add_widget(self.cam)
         bl.add_widget(self.lbl)
         bl.add_widget(btt)
         return bl
     
     def g(self,instance):
-        self.cam.play=True
         Clock.schedule_interval(self.f,0.1)
     
     def f(self,instance):
@@ -29,9 +29,9 @@ class camApp(App):
             b.pop(-1)
             s=str(max(b)-min(b))
             self.lbl.text=s
+            print(type(a[0]))
             b=[]
             a=[]
-            self.cam.play=False
             return False
         frame=self.cam.texture
         a.append(frame)
