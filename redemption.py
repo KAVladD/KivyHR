@@ -38,18 +38,18 @@ class camApp(App):
             for j in range(50):
                 c.append((self.a[j]+self.a[j+1]+self.a[j+2])/3)
             ln=[[j] for j in range(1,6+1)]
-            points=find_peaks_cwt(c,ln)
-            d=0 
-            for j in range(len(points)-1): 
-                d+=points[j+1]-points[j] 
-            tau=d/(len(points)-1)*0.1
+            #points=find_peaks_cwt(c,ln)
+            #d=0 
+            #for j in range(len(points)-1): 
+                #d+=points[j+1]-points[j] 
+            #tau=d/(len(points)-1)*0.1
             
-            print(tau)
+            #print(tau)
             plt.plot(range(52),self.a)
             plt.plot(range(50),c)
             plt.show()
             
-            self.lbl.text=str(int(60/tau))
+            #self.lbl.text=str(int(60/tau))
             self.i=0
             self.a=[]
             return False
